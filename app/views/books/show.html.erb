@@ -10,7 +10,8 @@
     <div class='col-md-8 offset-md-1'>
   		<h2>Book detail</h2>
   		<table class='table'>
-  		  <tr>
+
+      <tr id="book_<%= @book.id %>">
           <td><%= link_to(@book.user) do %>
             <%= image_tag @book.user.get_profile_image, size:"100x100" %><br>
             <%= @book.user.name %>
@@ -27,21 +28,8 @@
           <% end %>
 
 
-          <% if @book.favorite_by?(current_user) %>
-    <td>
-      <%= link_to book_favorite_path(@book), method: :delete do %>
-        ♥<%= @book.favorites.count %> 
-      <% end %>
-    </td>
-    <% else %>
-    <td>
-      <%= link_to book_favorite_path(@book), method: :post do %>
-        ♡<%= @book.favorites.count %> 
-      <% end %>
-    </td>
-  <% end %>
-
-          <td>コメント件数：<%= @book.book_comments.count %></td>
+          <td class="favorite-btn"><%= render "favorites/favorite-btn", book: @book %></td>
+  <td class="comments-count">コメント数: <%= @book.book_comments.count %></td>
        </tr></table>
       
 <table>
@@ -68,7 +56,7 @@
 
 <div>
   <%= form_with model:[@book,@book_comment], local: false do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに",class: "w-100" %>
+    <%= f.text_area :comment, size:"90x5", placeholder: "コメントをここに" %>
     <br />
     <%= f.submit "送信" %>
   <% end %>
