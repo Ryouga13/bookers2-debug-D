@@ -8,6 +8,10 @@ class User < ApplicationRecord
   has_many :book_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_one_attached :profile_image
+  has_many :entries, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :rooms, through: :entries
+  has_many :read_counts, dependent: :destroy
 
   
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
@@ -42,7 +46,7 @@ class User < ApplicationRecord
   #<--------　フォロー定義　終了-------->
 
 
-  
+
   #<--------　検索機能定義　-------->
 
   def self.looks(search, word)
@@ -68,4 +72,10 @@ class User < ApplicationRecord
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
+
+  def following?(user)
+    followings.include?(user)
+  end
+
+
 end
