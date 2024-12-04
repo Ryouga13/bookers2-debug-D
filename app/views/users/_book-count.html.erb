@@ -67,7 +67,7 @@
 
     <canvas id="myLineChart"></canvas>
   <script>
-    $(document).on('turbolinks:load', function() {
+      $(document).on('turbolinks:load', function() {
       var ctx = document.getElementById("myLineChart");
       var myLineChart = new Chart(ctx, {
         type: 'line',
@@ -92,15 +92,20 @@
           ],
         },
         options: {
-          title: {
-            display: true,
-            text: '7日間の投稿数の比較'
+          plugins: {
+            title: {
+              display: true,
+              text: '7日間の投稿数の比較'
+            }
           },
           responsive: true,
           scales: {
             y:{
               suggestedMin: 0,
-              suggestedMax: 10
+              suggestedMax: 10,
+              ticks: {
+              stepSize: 1,
+            }
             },
             x:{
               stacked: true

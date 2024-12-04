@@ -11,6 +11,7 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
+import Chart from 'chart.js/auto';
 
 
 import "../stylesheets/application";
@@ -18,3 +19,6 @@ import "../stylesheets/application";
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+global.Chart = Chart;
