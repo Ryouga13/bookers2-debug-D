@@ -43,9 +43,6 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  #<--------　フォロー定義　終了-------->
-
-
 
   #<--------　検索機能定義　-------->
 
@@ -63,7 +60,10 @@ class User < ApplicationRecord
     end
   end
 
-  #<--------　検索機能定義　終了-------->
+
+  #<--------　定義　-------->
+
+  
 
 
 
