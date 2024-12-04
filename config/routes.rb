@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resource :favorite, only: [:create, :destroy]
   end
 
-  resources :messages, only: [:create]
+  resources :messages, only: [:show, :create, :destroy]
   resources :rooms, only: [:create, :show]
   
   

@@ -2,5 +2,5 @@
 
 
 
-$('.chats').append("<p style='text-align: right;'><%= @chat-fukidashi %></p>");
+$('.message').append('<%= j(render "messages/chat", chat: @chat) %>');
 $('input[type=text]').val("")
