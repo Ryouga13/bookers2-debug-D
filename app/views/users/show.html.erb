@@ -10,6 +10,7 @@
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
       <%= render 'books/index',books: @books %>
+      <%= render "users/posts_on_date_form", user: @user %>
       <%= render 'users/book-count',books: @books %>
 
   

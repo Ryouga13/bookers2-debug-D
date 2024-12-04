@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:index,:show,:edit,:update] do
-    get "search" => "users#search"
+    get "posts_on_date" => "users#posts_on_date"
     
     resource :relationships, only: [:create, :destroy]
   	  get "followings" => "relationships#followings", as: "followings"
