@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
 
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:show, :create, :destroy]
   resources :rooms, only: [:create, :show]
   resources :notifications, only: [:update]
-
+  resource :map, only: [:show]
 
 
   devise_scope :user do

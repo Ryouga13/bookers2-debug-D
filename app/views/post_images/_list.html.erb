@@ -1,0 +1,11 @@
+
+
+<p class="card-title">
+  <%= link_to(post_image_path(post_image.id), class:"text-dark") do %>
+   <strong><i class="fa-solid fa-flag"></i><span> <%= post_image.shop_name %></span></strong>
+  <% end %>
+</p>
+<p class="card-title">
+  <span><i class="fa-solid fa-location-dot"></i> <%= post_image.address %></span>
+</p>
+<p class="card-title">説明：<%= post_image.caption %></p>
