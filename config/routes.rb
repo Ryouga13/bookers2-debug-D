@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  get 'groups/new'
+  get 'groups/index'
+  get 'groups/show'
+  get 'groups/edit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
 
@@ -28,6 +32,7 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create, :show]
   resources :notifications, only: [:update]
   resource :map, only: [:show]
+  resources :groups, only: [:new, :index, :show, :create, :edit, :update]
 
 
   devise_scope :user do
