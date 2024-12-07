@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index,:show,:edit,:update] do
     get "posts_on_date" => "users#posts_on_date"
-    
     resource :relationships, only: [:create, :destroy]
   	  get "followings" => "relationships#followings", as: "followings"
   	  get "followers" => "relationships#followers", as: "followers"
@@ -32,7 +31,11 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create, :show]
   resources :notifications, only: [:update]
   resource :map, only: [:show]
-  resources :groups, only: [:new, :index, :show, :create, :edit, :update]
+
+
+  resources :groups, only: [:new, :index, :show, :create, :edit, :update] do
+    resource :group_users, only: [:create, :destroy]
+  end
 
 
   devise_scope :user do
