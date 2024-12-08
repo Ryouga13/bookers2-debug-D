@@ -17,9 +17,12 @@
         <p id="notice"><%= notice %></p>
         <div class="d-flex justify-content-center mb-2">
           <%= render "searches/form" %>
+
+          <%= render 'tag_searches/tagsearch' %>
+          
         </div>
 
-           <%= yield %>
+        <%= yield %>
       </main>
     <%= render 'layouts/footer' %>
 

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "home/about"=>"homes#about"
   get "search" => "searches#search"
   get "events/index" =>"events#index"
+  get "tag_searches/search" => "tag_searches#search"
 
 
   resources :users, only: [:index,:show,:edit,:update] do
